@@ -1,0 +1,36 @@
+<template>
+  <v-app>
+    <!-- <v-app-bar
+      v-if="mdAndDown"
+      position="fixed"
+      class="no-print"
+    >
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-spacer></v-spacer>
+      <SocialLinks
+        class="mr-4"
+        :xl="true"
+      ></SocialLinks>
+    </v-app-bar>
+
+    <SideMenu :showMenu="drawer" /> -->
+
+    <v-container>
+      <slot></slot>
+    </v-container>
+  </v-app>
+</template>
+
+<script setup>
+import { useDisplay } from 'vuetify';
+
+const drawer = ref(true);
+
+const { mdAndDown, mdAndUp } = useDisplay();
+</script>
+
+<style lang="scss">
+.v-list-item--active > .v-list-item__overlay {
+  opacity: 0 !important;
+}
+</style>
